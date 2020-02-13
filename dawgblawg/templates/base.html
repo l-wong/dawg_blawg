@@ -5,6 +5,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Mitr:500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <meta charset="utf-8">
     <title>Dawg Blawg</title>
@@ -26,13 +31,13 @@
   <ul class="nav">
 
     <li class="nav-item">
-      <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+      <a class="nav-link" title="Home" href="{{ url_for('home') }}"><img class="nav-icon" src="../static/home-icon.png"></img></a>
     </li>
       {% if current_user.is_authenticated %}
-      <li class="nav-link"><a href="{{ url_for('logout') }}">Log Out</a></li>
+      <li class="nav-link"><a title="Logout" href="{{ url_for('logout') }}"><img class="nav-icon" src="../static/logout-icon.png"></a></li>
       {% else %}
-      <li class="nav-link"><a href="{{ url_for('login') }}">Log In</a></li>
-      <li class="nav-link"><a href="{{ url_for('register') }}">Register</a></li>
+      <li class="nav-link"><a title="Login" href="{{ url_for('login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
+      <li class="nav-link"><a title="Register" href="{{ url_for('register') }}"><img class="nav-icon" src="../static/register-icon.png"></a></li>
       {% endif %}
 
   </ul>
