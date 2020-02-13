@@ -2,11 +2,12 @@
 {% block content %}
 
   <form method="post">
+    <h1>Register</h1>
     {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.username.label}}{{form.username()}}<br>
-    {{form.password.label}}{{form.password()}}<br>
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-    {{form.submit()}}
+    {{form.email.label(class_="form-label")}}{{form.email(class_="form-input")}}<br>
+    {{form.username.label(class_="form-label")}}{{form.username(class_="form-input")}}<br>
+    {{form.password.label(class_="form-label")}}{{form.password(class_="form-input")}}<br>
+    {{form.pass_confirm.label(class_="form-label")}}{{form.pass_confirm(class_="form-input")}}<br>
+    {{form.submit(class_="form-submit")}}
   </form>
 {% endblock %}
