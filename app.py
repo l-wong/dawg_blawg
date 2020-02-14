@@ -5,6 +5,7 @@ from dawgblawg.models import User
 from dawgblawg.forms import LoginForm,RegistrationForm
 from werkzeug.security import generate_password_hash,check_password_hash
 
+
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -31,13 +32,12 @@ def login():
         if user.check_password(form.password.data) and user is not None:
             login_user(user)
             flash("Logged in Successfully!")
-
             #grab user's requested page - only used if user tries to access a page that they
             #have to be logged in to view. If they are going to a page that doesn't require login access
             #it would be set to none
             next = request.args.get('next')
             if next == None or not next[0]=='/':
-                next = url_for('welcome_user')
+                next = url_for('home')
             return redirect(next)
 
     return render_template('login.html',form=form)

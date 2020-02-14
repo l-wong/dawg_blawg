@@ -31,16 +31,18 @@
   <ul class="nav">
 
     <li class="nav-item">
-      <a class="nav-link" title="Home" href="{{ url_for('home') }}"><img class="nav-icon" src="../static/home-icon.png"></img></a>
+      <a class="nav-link hvr-wobble-horizontal" title="Home" href="{{ url_for('home') }}"><img class="nav-icon" src="../static/home-icon.png"></img></a>
     </li>
       {% if current_user.is_authenticated %}
-      <li class="nav-link"><a title="Logout" href="{{ url_for('logout') }}"><img class="nav-icon" src="../static/logout-icon.png"></a></li>
+      <li class="nav-link hvr-wobble-horizontal"><a title="Logout" href="{{ url_for('logout') }}"><img class="nav-icon" src="../static/logout-icon.png"></a></li>
       {% else %}
-      <li class="nav-link"><a title="Login" href="{{ url_for('login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
-      <li class="nav-link"><a title="Register" href="{{ url_for('register') }}"><img class="nav-icon" src="../static/register-icon.png"></a></li>
+      <li class="nav-link hvr-wobble-horizontal"><a title="Login" href="{{ url_for('login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
+      <li class="nav-link hvr-wobble-horizontal"><a title="Register" href="{{ url_for('register') }}"><img class="nav-icon" src="../static/register-icon.png"></a></li>
       {% endif %}
 
   </ul>
+
+
   {% block content %}
 
   {% endblock %}
