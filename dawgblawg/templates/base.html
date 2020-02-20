@@ -35,7 +35,7 @@
     </li>
       {% if current_user.is_authenticated %}
       <li class='nav-link hvr-wobble-horizontal'><a href="{{ url_for('users.account') }}">Account</a></li>
-      <li class='nav-link hvr-wobble-horizontal'><a href="#">Create Post</a></li>
+      <li class='nav-link hvr-wobble-horizontal'><a href="{{ url_for('blog_posts.create_post')}}">Create Post</a></li>
       <li class="nav-link hvr-wobble-horizontal"><a title="Logout" href="{{ url_for('users.logout') }}"><img class="nav-icon" src="../static/logout-icon.png"></a></li>
       {% else %}
       <li class="nav-link hvr-wobble-horizontal"><a title="Login" href="{{ url_for('users.login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
