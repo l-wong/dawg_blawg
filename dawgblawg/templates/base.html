@@ -34,15 +34,18 @@
       <a class="nav-link hvr-wobble-horizontal" title="Home" href="{{ url_for('core.index') }}"><img class="nav-icon" src="../static/home-icon.png"></img></a>
     </li>
       {% if current_user.is_authenticated %}
-      <li class='nav-link hvr-wobble-horizontal'><a href="{{ url_for('users.account') }}">Account</a></li>
-      <li class='nav-link hvr-wobble-horizontal'><a href="{{ url_for('blog_posts.create_post')}}">Create Post</a></li>
+      <li class='nav-link hvr-wobble-horizontal'><a title="My Account" href="{{ url_for('users.account') }}"><img class="nav-icon" src="{{url_for('static',filename='profile_pics/'+ current_user.profile_image)}}"></a></li>
+      <li class='nav-link hvr-wobble-horizontal'><a title="Create Post" href="{{ url_for('blog_posts.create_post')}}"><img class="nav-icon" src="../static/register-icon.png"></a></li>
       <li class="nav-link hvr-wobble-horizontal"><a title="Logout" href="{{ url_for('users.logout') }}"><img class="nav-icon" src="../static/logout-icon.png"></a></li>
+    </ul>
       {% else %}
-      <li class="nav-link hvr-wobble-horizontal"><a title="Login" href="{{ url_for('users.login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
+    </ul>
+      <!--<li class="nav-link hvr-wobble-horizontal"><a title="Login" href="{{ url_for('users.login') }}"><img class="nav-icon" src="../static/login-icon.png"></a></li>
       <li class="nav-link hvr-wobble-horizontal"><a title="Register" href="{{ url_for('users.register') }}"><img class="nav-icon" src="../static/register-icon.png"></a></li>
+      -->
       {% endif %}
 
-  </ul>
+  <!--</ul>-->
 
 
   {% block content %}

@@ -7,7 +7,6 @@
     {% if current_user.is_authenticated %}
       <p>Welcome Back {{current_user.username}}!</p>
 
-
     <div class="container">
      {# Go through each blog post #}
      {% for post in blog_posts.items %}
@@ -39,6 +38,8 @@
     <div class="home-intro">
       <h1>Dawg Blawg.</h1>
       <p>Welcome to this cool place where you can talk about your dog and other people's dogs!</p>
+      <a class="btn btn-primary btn-lg" href="{{ url_for('users.login') }}" role="button">Login</a>
+      <a class="btn btn-info btn-lg" href="{{ url_for('users.register') }}" role="button">Register</a>
     </div>
     {% endif %}
 
