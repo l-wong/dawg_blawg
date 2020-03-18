@@ -172,3 +172,28 @@ li a:title {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
+
+.blog-post-template {
+    max-width: 800px;
+    margin: 4rem auto 0;
+    padding: 2rem 4rem;
+    background-color: #FCFCFC;
+}
+.blog-post-template {
+    font-family: 'Mitr', sans-serif;
+}
+
+.blog-post-template h2 {
+  font-size: 15px;
+
+}
+
+.blog-post-template h3 {
+  font-size: 12px;
+}
+
+.blog-post-template p {
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem 0rem 1rem 0rem;
+}
