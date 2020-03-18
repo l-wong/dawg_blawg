@@ -172,24 +172,3 @@ li a:title {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
-.blog_post {
-  background-color: #B2B3B7;
-  max-width: 800px;
-  margin: 10px auto;
-  padding: 10px 20px;
-  border-radius: 8px;
-}
-
-.blog_post_heading {
-  background-color: #F9F4F4;
-  border-radius: 8px;
-  padding: 10px 20px;
-}
-
-.blog_post_body {
-  background-color: #C1DEF2;
-  margin: 10px auto;
-  padding: 10px 20px;
-  border-radius: 8px;
-}
