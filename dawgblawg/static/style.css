@@ -197,3 +197,125 @@ li a:title {
   font-family: 'Montserrat', sans-serif;
   padding: 1rem 0rem 1rem 0rem;
 }
+
+#welcomeBackUser {
+  text-align: center;
+  padding-top:100px;
+  padding-bottom:100px;
+  font-family: 'Oswald', Helvetica, sans-serif;
+  font-size: 80px;
+  transform: skewY(-2.5deg);
+  letter-spacing: 4px;
+  word-spacing: -8px;
+  color: tomato;
+  text-shadow:
+    -1px -1px 0 firebrick,
+    -2px -2px 0 firebrick,
+    -3px -3px 0 firebrick,
+    -4px -4px 0 firebrick,
+    -5px -5px 0 firebrick,
+    -6px -6px 0 firebrick,
+    -7px -7px 0 firebrick,
+    -8px -8px 0 firebrick,
+    -30px 20px 40px dimgrey;
+}
+
+.jumbotron {
+  background-image: url('grass_bg.jpg');
+  background-size: cover;
+  height: 500px;
+
+}
+
+#profile-pic {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #eeeeee;
+  border: 5px solid #ffffff;
+  position: absolute;
+  margin: 25px auto 0;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+}
+
+.account-heading {
+  font-family: 'Fredoka One', cursive;
+}
+
+#create-post-heading {
+  font-family: 'Fredoka One', cursive;
+  padding: 15px 2px 15px 2px;
+}
+
+.account-setting-label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  color: #FFFFF;
+}
+
+.account-setting-submit {
+  padding: 8px 20px 9px 20px;
+  color: #FFF;
+  background-color: #D7E057;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 20%;
+  border: 1px solid #b0b846;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.account-setting-input {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  outline: 0;
+  background: #FFFFFF;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.account-setting-pp {
+  color: red;
+}
+
+#account-setting-title {
+  text-align: center;
+  padding: 5px 2px 5px 2px;
+}
+
+.blog-author {
+  color: #8AC6DD;
+}
+
+.blog-date {
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color:#F16C7A;
+}
+
+.card-title {
+  font-family: 'Fredoka One', cursive;
+  color: #3A312A;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    height: 100vh;
+    margin: auto;
+    width: 940px;
+}

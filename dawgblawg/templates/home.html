@@ -4,19 +4,25 @@
 {% block content %}
 
   <div>
+    <div class="jumbotron">
     {% if current_user.is_authenticated %}
-      <p>Welcome Back {{current_user.username}}!</p>
+      <h1 id="welcomeBackUser">Welcome Back {{current_user.username}}!</h1>
+    </div>
 
     <div class="container">
      {# Go through each blog post #}
      {% for post in blog_posts.items %}
-     <div class="card" >
-       <div class="card-body">
-         <h2><a class="card-title" href="  {{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">{{ post.title }}</a></h2>
-         <a href="{{ url_for('users.user_posts', username=post.author.username) }}">Written By: {{ post.author.username }}</a>
-         <p>Published on: {{ post.date.strftime('%Y-%m-%d') }}</p>
-         <p class="card-text">{{ post.text[:100] }}...</p>
-         <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-primary">Read Blog Post</a>
+     <div>
+       <div>
+         <div class="card" >
+           <div class="card-body">
+             <h2><a class="card-title" href="  {{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">{{ post.title }}</a></h2>
+             <a class="blog-author" href="{{ url_for('users.user_posts', username=post.author.username) }}">Written By: {{ post.author.username }}</a>
+             <span class="blog-date">Published on: {{ post.date.strftime('%Y-%m-%d') }}</span>
+             <p class="card-text">{{ post.text[:100] }}...</p>
+             <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-primary">Read Blog Post</a>
+           </div>
+         </div>
        </div>
      </div>
     {% endfor %}

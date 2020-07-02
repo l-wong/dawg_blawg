@@ -2,6 +2,8 @@ from dawgblawg import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+#from flask_restful import Resource, Api
+
 
 #load user function used to load current user based on their id to load info specific to user
 @login_manager.user_loader
@@ -33,6 +35,13 @@ class User(db.Model,UserMixin):
     def __repr__(self):
         return f"Username {self.username}"
 
+    def json(self):
+        return {'id': self.id,
+                'profile_image': self.profile_image,
+                'email': self.email,
+                'username': self.username,
+                'posts': self.posts}
+
 class BlogPost(db.Model):
 
     users = db.relationship(User)
@@ -50,3 +59,37 @@ class BlogPost(db.Model):
 
     def __repr__(self):
         return f"Post ID: {self.id} -- Date: {self.date} -- {self.title}"
+
+    def json(self):
+        return {'id': self.id,
+                'user_id': self.user_id,
+                'date': self.date,
+                'title': self.title,
+                'text': self.Text}
+
+'''
+###################REST API########################
+class BlawgUsers(Resource):
+
+    def get(self, username):
+        usr = User.query.filter_by(username=username).first()
+        if usr:
+            return usr.json()
+        else:
+            return {'username': None},404
+
+    def post(self, username):
+        pass
+
+    def delete(self,username):
+        usr = User.query.filter_by(username=username).first()
+        db.session.delete(usr)
+        db.session.commit()
+        return {'note': 'delete success'}
+
+class AllUsers(Resource):
+
+    def get(self):
+        usrs = User.query.all()
+        return [usr.json() for usr in usrs]
+'''

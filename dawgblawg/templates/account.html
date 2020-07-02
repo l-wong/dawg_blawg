@@ -3,18 +3,22 @@
 {% block content %}
   <div class="jumbotron">
     <div align='center'>
-      <h1>Welcome to the page for {{current_user.username}}</h1>
-      <img align='center' src="{{url_for('static',filename='profile_pics/'+ current_user.profile_image)}}">
+      <h1 class="account-heading">{{current_user.username}}'s Account</h1>
+      <img id="profile-pic" align='center' src="{{url_for('static',filename='profile_pics/'+ current_user.profile_image)}}">
     </div>
   </div>
 
-  <div class="container">
+  <div class="account-container">
     <form method="POST" action="" enctype="multipart/form-data">
+      <h3 id="account-setting-title">General Account Settings</h3>
       {{form.hidden_tag()}}
-      {{form.username.label}}{{form.username}}
-      {{form.email.label}}{{form.email}}
-      {{form.picture.label}}{{form.picture}}
-      {{form.submit()}}
+      {{form.username.label(class_='account-setting-label')}}
+      {{form.username(class_='account-setting-input')}}
+      {{form.email.label(class_='account-setting-label')}}
+      {{form.email(class_='account-setting-input')}}
+      {{form.picture.label(class_='account-setting-label')}}
+      {{form.picture(class_='account-setting-pp')}}
+      {{form.submit(class_='account-setting-submit')}}
     </form>
   </div>
 

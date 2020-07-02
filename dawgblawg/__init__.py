@@ -3,9 +3,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+#from flask_restful import Resource, Api
 
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = 'mysecretkey'
 
 ### DATABASE SETUP ###
@@ -16,6 +16,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #create db
 db = SQLAlchemy(app)
 Migrate(app,db) #to form migrations
+
+#from dawgblawg.models import BlawgUsers, AllUsers
+
+#api = Api(app)
+#jwt = JWT(app,authenticate,identity)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -31,3 +36,6 @@ app.register_blueprint(core)
 app.register_blueprint(error_pages)
 app.register_blueprint(users)
 app.register_blueprint(blog_posts)
+
+#api.add_resource(BlawgUsers,'/user/<string:username>')
+#api.add_resource(AllUsers,'/users')
