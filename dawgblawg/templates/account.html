@@ -3,8 +3,8 @@
 {% block content %}
   <div class="jumbotron">
     <div align='center'>
-      <h1 class="account-heading">{{current_user.username}}'s Account</h1>
-      <img id="profile-pic" align='center' src="{{url_for('static',filename='profile_pics/'+ current_user.profile_image)}}">
+      <h1 class="account-heading">My Account</h1>
+      <img class="profile-pic" align='center' src="{{url_for('static',filename='profile_pics/'+ current_user.profile_image)}}">
     </div>
   </div>
 
@@ -16,6 +16,8 @@
       {{form.username(class_='account-setting-input')}}
       {{form.email.label(class_='account-setting-label')}}
       {{form.email(class_='account-setting-input')}}
+      {{form.about_me.label(class_='account-setting-label')}}
+      {{form.about_me(class_='account-setting-input')}}
       {{form.picture.label(class_='account-setting-label')}}
       {{form.picture(class_='account-setting-pp')}}
       {{form.submit(class_='account-setting-submit')}}

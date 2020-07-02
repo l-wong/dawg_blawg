@@ -1,12 +1,13 @@
-{% extends "base.html" %}
+  {% extends "base.html" %}
 
 
 {% block content %}
 
   <div>
-    <div class="jumbotron">
+
     {% if current_user.is_authenticated %}
-      <h1 id="welcomeBackUser">Welcome Back {{current_user.username}}!</h1>
+    <div class="jumbotron">
+      <h1 id="welcomeBackUser">Welcome Back, {{current_user.username}}!</h1>
     </div>
 
     <div class="container">

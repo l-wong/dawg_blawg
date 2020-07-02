@@ -2,6 +2,7 @@ from dawgblawg import db, login_manager
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+
 #from flask_restful import Resource, Api
 
 
@@ -21,6 +22,7 @@ class User(db.Model,UserMixin):
     email = db.Column(db.String(64),unique=True,index=True)
     username = db.Column(db.String(64),unique=True,index=True)
     password_hash = db.Column(db.String(128))
+    about_me = db.Column(db.String(250),default='Certified Dog Lover.')
 
     posts = db.relationship('BlogPost',backref='author',lazy=True)
 
@@ -40,6 +42,7 @@ class User(db.Model,UserMixin):
                 'profile_image': self.profile_image,
                 'email': self.email,
                 'username': self.username,
+                'about_me': self.about_me,
                 'posts': self.posts}
 
 class BlogPost(db.Model):

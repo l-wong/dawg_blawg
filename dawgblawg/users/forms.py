@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo
 from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
@@ -35,8 +35,9 @@ class RegistrationForm(FlaskForm):
 class UpdateUserForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired("Email is required"),Email()]) #required field, checks if it is an Email
     username = StringField('Username',validators=[DataRequired('Username is required')])
-    picture = FileField('Update Profile Picture',validators=[FileAllowed(['jpg','png'])])
-    submit = SubmitField('Update')
+    about_me = TextAreaField('About me')
+    picture = FileField('Change Profile Picture',validators=[FileAllowed(['jpg','png'])])
+    submit = SubmitField('Update Profile')
 
     def validate_email(self,field):
         #check to see if that email has been activated/registered by querying User table

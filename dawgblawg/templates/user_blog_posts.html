@@ -1,23 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div class="container">
     <div class="jumbotron">
       <div align='center'>
-        <h1>Welcome to the page for {{user.username}}</h1>
-        <img src="{{url_for('static',filename='profile_pics/'+user.profile_image)}}"
+        <h1 class="account-heading">Welcome to {{user.username}}'s Profile</h1>
+        <div class="col-md-5" style="float:left;">
+          <img class="profile-pic" align='center' src="{{url_for('static',filename='profile_pics/'+user.profile_image)}}">
+        </div>
+        <div class="col-md-7 about-me">
+          <h4>About me</h4>
+          <p>{{user.about_me}}</p>
+        </div>
       </div>
     </div>
 
-    {% for post in blog_posts.items %}
-      <h2><a href="{{url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a></h2>
-      Written by: <a href="{{url_for('users.user_posts',username=post.author.username)}}">{{post.author.username}}</a>
-      <p class='text-muted'>Published on: {{post.date.strftime("%Y-%m-%d")}}</p>
-      <br>
-      <p>{{post.text}}</p>
-      <br>
+    <div class="container">
+     {# Go through each blog post #}
+     {% for post in blog_posts.items %}
+     <div>
+       <div>
+         <div class="card" >
+           <div class="card-body">
+             <h2><a class="card-title" href="  {{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}">{{ post.title }}</a></h2>
+             <a class="blog-author" href="{{ url_for('users.user_posts', username=post.author.username) }}">Written By: {{ post.author.username }}</a>
+             <span class="blog-date">Published on: {{ post.date.strftime('%Y-%m-%d') }}</span>
+             <p class="card-text">{{ post.text[:100] }}...</p>
+             <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-primary">Read Blog Post</a>
+           </div>
+         </div>
+       </div>
+     </div>
     {% endfor %}
-  </div>
+
 
 <!--pagination-->
   <nav aria-label='Page Navigation'>
